@@ -68,10 +68,13 @@ game.module('plugins.tests')
     * @return {Void}
     **/
     showResults: function () {
+      var pass = String('').concat(this.passedTests, ' (', Math.floor(this.passedTests * 100 / this.totalTests), '%)');
+      var fail = String('').concat(this.failedTests, ' (', Math.floor(this.failedTests * 100 / this.totalTests), '%)');
+
       console.log();
       console.log('%c-- Tests results --', this.titleCss);
-      console.log('- %cPassed tests: '+ this.passedTests, this.passedCss);
-      console.log('- %cFailed tests: '+ this.failedTests, this.failedCss);
+      console.log('- %cPassed tests: '+ pass, this.passedCss);
+      console.log('- %cFailed tests: '+ fail, this.failedCss);
       console.log('- %cTotal  tests: '+ this.totalTests, this.totalCss);
       console.log('%c-- Tests results --\n', this.titleCss);
       console.log();
