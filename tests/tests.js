@@ -15,6 +15,7 @@ game.module('plugins.tests')
 
     // Some CSS for styling the tests report.
     titleCss: 'background: #BDC3C7; color: #FFF; padding: 5px;',
+    normalCss: 'color: #F39C12',
     totalCss: 'color: #9B59B6',
     failedCss: 'color: #E74C3C',
     passedCss: 'color: #2ECC71',
@@ -39,12 +40,12 @@ game.module('plugins.tests')
       var caller = new Error().stack.split('\n')[1].split('/').slice(-1).pop();
 
       if (!condition) {
-        var message = caller+":%c"+name || caller+":%cAssertion failed!";
-        console.log('%cTest failed: %c'+ message, this.failedCss, this.totalCss);
+        var message = caller+": %c"+name || caller+": %cAssertion failed!";
+        console.log('%cTest failed: %c'+ message, this.failedCss, this.totalCss, this.normalCss);
         this.failedTests++;
       } else {
-        var message = caller+":%c"+name || caller+":%cAssertion passed!";
-        console.log('%cTest passed: %c'+ message, this.passedCss, this.totalCss);
+        var message = caller+": %c"+name || caller+": %cAssertion passed!";
+        console.log('%cTest passed: %c'+ message, this.passedCss, this.totalCss, this.normalCss);
         this.passedTests++;
       }
 
@@ -73,9 +74,9 @@ game.module('plugins.tests')
 
       console.log();
       console.log('%c-- Tests results --', this.titleCss);
-      console.log('- %cPassed tests: '+ pass, this.passedCss);
-      console.log('- %cFailed tests: '+ fail, this.failedCss);
-      console.log('- %cTotal  tests: '+ this.totalTests, this.totalCss);
+      console.log('- %cPassed tests: %c'+ pass, this.passedCss, this.normalCss);
+      console.log('- %cFailed tests: %c'+ fail, this.failedCss, this.normalCss);
+      console.log('- %cTotal  tests: %c'+ this.totalTests, this.totalCss, this.normalCss);
       console.log('%c-- Tests results --\n', this.titleCss);
       console.log();
     }
