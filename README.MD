@@ -1,6 +1,8 @@
 # SkyzohKey PandaJS plugins
 Here stands all the plugins I wrote for PandaJS, they should be easy to port to
-vanilla JS. Note that PandaJS **v2** (develop branch) is required in order to
+vanilla JS.
+
+**Note** that PandaJS **v2** (develop branch) is required in order to
 use these plugins.
 
 ## Available plugins
